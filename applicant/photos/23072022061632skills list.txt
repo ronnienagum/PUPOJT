@@ -1,0 +1,26 @@
+SELECT *
+FROM `tblapplicants` 
+inner join `tblskills` on 
+tblapplicants.APPLICANTID = tblskills.applicant_id
+inner join `tblcategory` on 
+tblskills.category_id = tblcategory.CATEGORYID;
+
+
+
+SELECT APPLICANTID, LNAME, FNAME, MNAME, SEX, BIRTHDATE, CONTACTNO, DEGREE, SUM(rating), category,  GROUP_CONCAT(skill SEPARATOR ', ') as skills
+FROM `tblapplicants` 
+inner join `tblskills` on 
+tblapplicants.APPLICANTID = tblskills.applicant_id
+inner join `tblcategory` on 
+tblskills.category_id = tblcategory.CATEGORYID
+GROUP BY APPLICANTID,LNAME, FNAME, MNAME, SEX, BIRTHDATE, CONTACTNO, DEGREE, category
+ORDER BY SUM(rating) DESC;
+
+
+
+IT
+category
+
+IT
+search skills (like %%)
+
